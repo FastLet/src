@@ -1,0 +1,39 @@
+<%= form_for (@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+  </div>
+  <div class="field">
+    <%= f.label :description %>:<br>
+    <%= f.text_area :description, :size => "100x10"%>
+  </div>
+
+  <div>
+    <%= f.fields_for :images do |builder|%>
+      <div class = "fields">
+      <%= builder.label :picture %>
+      <%= builder.file_field :picture%>
+
+      </div>
+    <%end%>
+
+  </div>
+
+  <div class="actions">
+    <br><%= f.submit %>
+  </div>
+<% end%>
+

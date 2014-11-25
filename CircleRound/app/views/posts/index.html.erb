@@ -1,0 +1,17 @@
+<div class = "page_header"><h1>My Posts</h1></div>
+<div class = "container">
+<div class = "row">
+	<% if @posts%>
+		<% @posts.each do |post|%>
+		
+		<div class="col-xs-4 col-sm-1 col-md-3">
+        <div class="well">
+		<%= link_to post.title, post%> |
+		<%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'}%>
+		</div>
+		</div>
+	<% end %>
+	<%end%>
+</div>
+</div>
+<%= link_to 'new post', new_post_path%>
