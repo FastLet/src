@@ -1,0 +1,11 @@
+
+<div class="tip">
+    <div>
+        <span>城市名称：</span>
+        <input id="address" placeholder="请输入城市的名称" type="text"/>
+        <input id="query" value="到指定的城市" type="button" onclick = "geocoder()"/>
+    </div>
+</div>
+<div id="mapContainer" style = "height:300px;">loading map...</div>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=c27ea61fd7d6b14512e81ae2ae607555"></script>
+<%= javascript_include_tag "transfer.js"%>

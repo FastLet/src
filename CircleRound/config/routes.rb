@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   root to: "posts#index"
+  post '/search', to: "posts#search"
+  get '/search', to: "posts#search" 
+  get 'posts/update_cities', as: 'update_cities'
+  get 'posts/update_areas', as: 'update_areas'
+  get '/locate', to: "posts#locate"
+  post '/locate', to: "posts#locate"
+  
 
   resources :posts
 

@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -20,20 +21,36 @@
     <%= f.label :description %>:<br>
     <%= f.text_area :description, :size => "100x10"%>
   </div>
-
+  <%number=1%>
   <div>
     <%= f.fields_for :images do |builder|%>
-      <div class = "fields">
-      <%= builder.label :picture %>
-      <%= builder.file_field :picture%>
 
+      <div class = "fields">
+      <div id="test">
+          <div class="wrapper" style = "float:left">
+            <%= builder.file_field(:picture, class: "hide#{number}")%>
+          </div>
+          <div class= "image" style = "float:left">
+            <%= image_tag("/image.png",class: "image#{number}")%>
+          </div>
       </div>
+      </div>
+      <%number+=1%>
     <%end%>
 
   </div>
-
   <div class="actions">
-    <br><%= f.submit %>
+  <br><br><br><br>
+  <%= f.submit %>
   </div>
 <% end%>
+
+
+<script>
+$.each([1,2,3], function(i,num){
+  $(".image"+num).click(function() {
+    $(".hide"+num).click();
+  });
+});
+</script>
 

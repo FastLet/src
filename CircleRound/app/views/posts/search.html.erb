@@ -1,0 +1,18 @@
+<h1><strong>Result:</strong></h1>
+<div>
+	<%= form_tag("/search", method: "get") do%>
+	  
+	  <%= label_tag(:q, "Search for Item")%>
+	  <%= text_field_tag(:q)%>
+	  <%= submit_tag("Search",:name=>nil)%>
+	 <%end%><br>
+</div>
+<div>
+	<p>The results is the disjunction of all the keywords:</p>
+	
+	<% if @goodResult %>
+	  <% @goodResult.each do |post|%>
+	    <%= link_to post.title, post%><br>
+	    <%end%>
+	<%end%>
+</div>
